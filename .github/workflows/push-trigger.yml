@@ -25,7 +25,7 @@ jobs:
   build-commons:
     uses: mosip/kattu/.github/workflows/maven-build.yml@master
     with:
-      SERVICE_LOCATION: ./
+      SERVICE_LOCATION: ./kernel
       BUILD_ARTIFACT: commons
     secrets:
       OSSRH_USER: ${{ secrets.OSSRH_USER }}
@@ -39,7 +39,7 @@ jobs:
     needs: build-commons
     uses: mosip/kattu/.github/workflows/maven-publish-to-nexus.yml@master
     with:
-      SERVICE_LOCATION: ./
+      SERVICE_LOCATION: ./kernel
     secrets:
       OSSRH_URL: ${{ secrets.OSSRH_SNAPSHOT_URL }}
       OSSRH_USER: ${{ secrets.OSSRH_USER }}
